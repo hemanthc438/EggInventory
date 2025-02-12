@@ -26,6 +26,10 @@ const Balances = () =>{
     }
     const handleSettle = async() =>{
         const quantity = exchangeData?.eater1?.totalExchange<0? -(exchangeData?.eater1?.totalExchange):exchangeData?.eater1?.totalExchange
+        if(eater?.state?.currentEater?.eggs?.totalEggs<quantity){
+            alert("Anni eggs leb bro ne daggara... sad life!")
+            return
+        }
         const settleRef = doc(db,'eaters',id)
         const messageRef = doc(collection(db,'messages'))
         const settleDoc = await getDoc(settleRef)
